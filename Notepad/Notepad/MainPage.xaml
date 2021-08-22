@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notepad.MainPage">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="End">
+                <Label Text="Last Saved:"/>
+                <Label Text="{Binding LastSaved}"/>
+            </StackLayout>
+            <Editor Text="{Binding Content}" Grid.Row="1" Grid.ColumnSpan="2" ></Editor>
+            <Button Command="{Binding SaveCommand}" IsEnabled="{Binding HasChanged}" Grid.Row="2" Grid.Column="0" Text="Save"></Button>
+            <Button Command="{Binding LoadCommand}" Grid.Row="2" Grid.Column="1" Text="Load"></Button>
+        </Grid>
+    </Grid>
+
+</ContentPage>
